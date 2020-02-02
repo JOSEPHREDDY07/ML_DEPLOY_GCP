@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict Your chances for Admission</h1>
+       <p> The goal here is to find the chance of admission of a candidate based on his/her <br />
+        GRE Score (out of 340), <br />
+        TOEFL Score (out of 120), <br />
+        rating of the University (out of 5) in which he/she is trying to get admission,<br />
+        Strength of the SOP (out of 5), strength of the Letter Of Recommendation (out of 5),<br />
+        CGPA (out of 10) and the research experience (0 or 1) <br />
+        please enter the data below and click on predict .
+    <p>
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="number" name="gre_score" id="gre_score" placeholder="GRE Score">
+            <input type="number" name="toefl_score" id="toefl_score" placeholder="TOEFL Score">
+            <input type="number" name="university_rating" id="university_rating" placeholder="University Rating">
+            <input type="number" name="sop" id="sop" placeholder="SOP Score">
+            <input type="number" name="lor" id="lor" placeholder="LOR Score">
+            <input type="number" name="cgpa" id="cgpa"placeholder="CGPA" step="any">
+            <select name="research" id="research">
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
